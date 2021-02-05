@@ -10,7 +10,7 @@ var btn = document.getElementById("honk-btn");
 btn.type = "button"; 
 
 volumeSlider.addEventListener('input', function () {
-    let volume = volumeSlider.value / 100;
+    var volume = volumeSlider.value / 100;
     volumeNumber.value = volumeSlider.value; 
     document.getElementById("horn-sound").volume = volume; //Slider that serves visual controller for sound level
     btn.disabled = false;
@@ -31,24 +31,24 @@ volumeSlider.addEventListener('input', function () {
 });
 
 volumeNumber.addEventListener('input', function () {
-    let volume = volumeNumber.value / 100;
+    var volume = volumeNumber.value / 100;
     volumeSlider.value = volumeNumber.value;
     document.getElementById("horn-sound").volume = volume; //the sound level of the <audio> element should be changed when editing this input field
     btn.disabled = false;
     //Volume icon that change depending on the sound level
-    if(volumeNumber > 66){
-         volumeImage.src = "./assets/media/icons/volume-level-3.svg";
-    }
-    else if(volumeNumber > 33){
-        volumeImage.src = "./assets/media/icons/volume-level-2.svg";
-    }  
-    else if(volumeNumber > 0){
-        volumeImage.src = "./assets/media/icons/volume-level-1.svg";
-    }
-    else{
-        volumeImage.src = "./assets/media/icons/volume-level-0.svg";
-        btn.disabled = true;
-    }
+    if(volumeSlider.value > 66){
+        volumeImage.src = "./assets/media/icons/volume-level-3.svg";
+   }
+   else if(volumeSlider.value > 33){
+       volumeImage.src = "./assets/media/icons/volume-level-2.svg";
+   }  
+   else if(volumeSlider.value > 0){
+       volumeImage.src = "./assets/media/icons/volume-level-1.svg";
+   }
+   else{
+       volumeImage.src = "./assets/media/icons/volume-level-0.svg";
+       btn.disabled = true;
+   }
 });
 
 //Radio that switches between different horn sounds
